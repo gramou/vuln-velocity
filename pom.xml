@@ -1,0 +1,11 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.gramou</groupId>
+  <artifactId>vuln-velocity</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>vuln-velocity-wicket</module>
+  </modules>
+</project>
