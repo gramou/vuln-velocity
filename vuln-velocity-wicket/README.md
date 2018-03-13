@@ -1,4 +1,4 @@
-## vuln-velocity-wicket ##
+## Vuln Velocity Wicket ##
 
 You can start vulnerable wicket project on cli:
 
